@@ -70,6 +70,59 @@ h1 {
     color: #444;
 }
 
+.screen {
+    display: none;
+}
+
+.screen.active {
+    display: block;
+}
+
+.game-header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-bottom: 15px;
+}
+
+.game-info {
+    display: flex;
+    gap: 15px;
+    font-weight: bold;
+    font-size: 1.1rem;
+    color: #2196F3;
+}
+
+.secondary-btn {
+    background-color: #607D8B;
+    font-size: 14px;
+    padding: 8px 15px;
+}
+
+.secondary-btn:hover {
+    background-color: #455A64;
+}
+
+.primary-btn {
+    font-size: 18px;
+    padding: 12px 24px;
+}
+
+.result-buttons {
+    display: flex;
+    justify-content: center;
+    gap: 15px;
+    margin-top: 20px;
+}
+
+#return-button {
+    background-color: #607D8B;
+}
+
+#return-button:hover {
+    background-color: #455A64;
+}
+
 .settings {
     background-color: white;
     padding: 20px;
@@ -121,6 +174,7 @@ button:hover {
 
 #start-button {
     min-width: 120px;
+    margin: 10px auto;
 }
 
 .display-area {
@@ -128,8 +182,8 @@ button:hover {
     padding: 20px;
     border-radius: 5px;
     box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
-    margin-bottom: 20px;
-    height: 200px;
+    margin-bottom: 10px;
+    height: 250px;
     display: flex;
     flex-direction: column;
     justify-content: center;
@@ -137,9 +191,9 @@ button:hover {
 }
 
 #number-display {
-    font-size: 72px;
+    font-size: 130px;
     text-align: center;
-    height: 120px;
+    height: 80%;
     display: flex;
     align-items: center;
     justify-content: center;
@@ -153,9 +207,17 @@ button:hover {
 }
 
 @keyframes pulse {
-    0% { transform: scale(1); }
-    50% { transform: scale(1.1); }
-    100% { transform: scale(1); }
+    0% {
+        transform: scale(1);
+    }
+
+    50% {
+        transform: scale(1.1);
+    }
+
+    100% {
+        transform: scale(1);
+    }
 }
 
 #progress-bar {
@@ -172,6 +234,14 @@ button:hover {
     width: 0;
     background-color: #4CAF50;
     transition: width 0.1s linear;
+}
+
+.input-area {
+    background-color: white;
+    padding: 15px;
+    border-radius: 5px;
+    box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+    margin-bottom: 20px;
 }
 
 .result-area {
@@ -191,7 +261,28 @@ button:hover {
     flex-wrap: wrap;
     align-items: center;
     justify-content: center;
-    margin-bottom: 20px;
+    margin-bottom: 10px;
+}
+
+@media (max-width: 480px) {
+    .answer-section {
+        flex-direction: column;
+    }
+
+    .answer-section label {
+        margin-bottom: 8px;
+        width: 100%;
+        text-align: center;
+    }
+
+    .answer-section input {
+        width: 100% !important;
+        margin: 0 0 10px 0 !important;
+    }
+
+    .answer-section button {
+        width: 100%;
+    }
 }
 
 #user-answer {
@@ -214,7 +305,6 @@ button:hover {
 
 #retry-button {
     display: block;
-    margin: 0 auto;
     background-color: #2196F3;
 }
 

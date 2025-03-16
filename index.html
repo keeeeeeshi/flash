@@ -10,81 +10,104 @@
 
 <body>
     <div class="container">
-        <div class="level-buttons">
-            <div class="button-row">
-                <button class="level-btn" data-digit="1" data-count="5" data-time="8">10級</button>
-                <button class="level-btn" data-digit="1" data-count="5" data-time="6">9級</button>
-                <button class="level-btn" data-digit="1" data-count="10" data-time="12">8級</button>
-                <button class="level-btn" data-digit="1" data-count="10" data-time="10">7級</button>
-                <button class="level-btn" data-digit="2" data-count="3" data-time="6">6級</button>
-                <button class="level-btn" data-digit="2" data-count="4" data-time="7">5級</button>
-                <button class="level-btn" data-digit="2" data-count="5" data-time="7.5">4級</button>
+        <!-- 設定画面 -->
+        <div id="setup-screen" class="screen active">
+            <h1>フラッシュあんざん</h1>
+            
+            <div class="level-buttons">
+                <div class="button-row">
+                    <button class="level-btn" data-digit="1" data-count="5" data-time="8">10級</button>
+                    <button class="level-btn" data-digit="1" data-count="5" data-time="6">9級</button>
+                    <button class="level-btn" data-digit="1" data-count="10" data-time="12">8級</button>
+                    <button class="level-btn" data-digit="1" data-count="10" data-time="10">7級</button>
+                    <button class="level-btn" data-digit="2" data-count="3" data-time="6">6級</button>
+                    <button class="level-btn" data-digit="2" data-count="4" data-time="7">5級</button>
+                    <button class="level-btn" data-digit="2" data-count="5" data-time="7.5">4級</button>
+                </div>
+                <div class="button-row">
+                    <button class="level-btn" data-digit="2" data-count="10" data-time="15">3級</button>
+                    <button class="level-btn" data-digit="2" data-count="10" data-time="10">2級</button>
+                    <button class="level-btn" data-digit="2" data-count="10" data-time="8">1級</button>
+                    <button class="level-btn" data-digit="3" data-count="5" data-time="5">初段</button>
+                    <button class="level-btn" data-digit="3" data-count="5" data-time="4">2段</button>
+                    <button class="level-btn" data-digit="3" data-count="10" data-time="8">3段</button>
+                    <button class="level-btn" data-digit="3" data-count="10" data-time="7">4段</button>
+                </div>
+                <div class="button-row">
+                    <button class="level-btn" data-digit="3" data-count="10" data-time="6">5段</button>
+                    <button class="level-btn" data-digit="3" data-count="15" data-time="7.5">6段</button>
+                    <button class="level-btn" data-digit="3" data-count="15" data-time="6">7段</button>
+                    <button class="level-btn" data-digit="3" data-count="15" data-time="4.5">8段</button>
+                    <button class="level-btn" data-digit="3" data-count="15" data-time="3">9段</button>
+                    <button class="level-btn" data-digit="3" data-count="15" data-time="2.5">10段</button>
+                </div>
+                <div class="button-row">
+                    <button class="level-btn master" data-digit="3" data-count="30" data-time="4">あんざんマスター</button>
+                </div>
             </div>
-            <div class="button-row">
-                <button class="level-btn" data-digit="2" data-count="10" data-time="15">3級</button>
-                <button class="level-btn" data-digit="2" data-count="10" data-time="10">2級</button>
-                <button class="level-btn" data-digit="2" data-count="10" data-time="8">1級</button>
-                <button class="level-btn" data-digit="3" data-count="5" data-time="5">初段</button>
-                <button class="level-btn" data-digit="3" data-count="5" data-time="4">2段</button>
-                <button class="level-btn" data-digit="3" data-count="10" data-time="8">3段</button>
-                <button class="level-btn" data-digit="3" data-count="10" data-time="7">4段</button>
-            </div>
-            <div class="button-row">
-                <button class="level-btn" data-digit="3" data-count="10" data-time="6">5段</button>
-                <button class="level-btn" data-digit="3" data-count="15" data-time="7.5">6段</button>
-                <button class="level-btn" data-digit="3" data-count="15" data-time="6">7段</button>
-                <button class="level-btn" data-digit="3" data-count="15" data-time="4.5">8段</button>
-                <button class="level-btn" data-digit="3" data-count="15" data-time="3">9段</button>
-                <button class="level-btn" data-digit="3" data-count="15" data-time="2.5">10段</button>
-            </div>
-            <div class="button-row">
-                <button class="level-btn master" data-digit="3" data-count="30" data-time="4">あんざんマスター</button>
+
+            <div class="settings">
+                <div class="setting-group">
+                    <label for="digit-select">ケタ数：</label>
+                    <select id="digit-select">
+                        <option value="1">1ケタ</option>
+                        <option value="2" selected>2ケタ</option>
+                        <option value="3">3ケタ</option>
+                    </select>
+                </div>
+
+                <div class="setting-group">
+                    <label for="number-count">口数：</label>
+                    <input type="number" id="number-count" min="1" max="30" value="10">
+                </div>
+
+                <div class="setting-group">
+                    <label for="display-time">合計表示時間（秒）：</label>
+                    <input type="number" id="display-time" min="1" max="60" step="1" value="10">
+                </div>
+
+                <button id="start-button" class="primary-btn">開始</button>
             </div>
         </div>
 
-        <div class="settings">
-            <div class="setting-group">
-                <label for="digit-select">ケタ数：</label>
-                <select id="digit-select">
-                    <option value="1">1ケタ</option>
-                    <option value="2" selected>2ケタ</option>
-                    <option value="3">3ケタ</option>
-                </select>
+        <!-- 問題画面 -->
+        <div id="game-screen" class="screen">
+            <div class="game-header">
+                <button id="back-button" class="secondary-btn">戻る</button>
+                <div class="game-info">
+                    <span id="level-display"></span>
+                    <span id="digit-display"></span>
+                    <span id="count-display"></span>
+                </div>
             </div>
 
-            <div class="setting-group">
-                <label for="number-count">口数：</label>
-                <input type="number" id="number-count" min="1" max="20" value="10">
+            <div class="display-area">
+                <div id="number-display"></div>
+                <div id="progress-bar">
+                    <div id="progress"></div>
+                </div>
             </div>
-
-            <div class="setting-group">
-                <label for="display-time">合計表示時間（秒）：</label>
-                <input type="number" id="display-time" min="1" max="60" step="1" value="10">
-            </div>
-
-            <button id="start-button">開始</button>
-        </div>
-
-        <div class="display-area">
-            <div id="number-display"></div>
-            <div id="progress-bar">
-                <div id="progress"></div>
-            </div>
-        </div>
-
-        <div class="result-area" style="display: none;">
-            <div class="result-container">
-                <h2>結果</h2>
+            
+            <div class="input-area">
                 <div class="answer-section">
                     <label for="user-answer">あなたの答え：</label>
-                    <input type="number" id="user-answer">
-                    <button id="check-button">確認</button>
+                    <input type="number" id="user-answer" disabled>
+                    <button id="check-button" disabled>確認</button>
                 </div>
-                <div id="result-display" style="display: none;">
-                    <p>正解：<span id="correct-answer"></span></p>
-                    <p id="result-message"></p>
+            </div>
+
+            <div class="result-area" style="display: none;">
+                <div class="result-container">
+                    <h2>結果</h2>
+                    <div id="result-display">
+                        <p>正解：<span id="correct-answer"></span></p>
+                        <p id="result-message"></p>
+                    </div>
+                    <div class="result-buttons">
+                        <button id="retry-button">もう一度</button>
+                        <button id="return-button">レベル選択に戻る</button>
+                    </div>
                 </div>
-                <button id="retry-button">もう一度</button>
             </div>
         </div>
     </div>
