@@ -65,13 +65,42 @@ document.addEventListener('DOMContentLoaded', function() {
         // 数値の生成
         generateNumbers(digits, count);
         
-        // 表示開始
+        // 初期化
         currentIndex = 0;
         sum = 0;
-        numberDisplay.textContent = '';
         resultArea.style.display = 'none';
         progress.style.width = '0%';
         
+        // 操作ボタンを無効化
+        startButton.disabled = true;
+        levelButtons.forEach(btn => btn.disabled = true);
+        
+        // カウントダウン処理
+        let countDown = 3;
+        numberDisplay.textContent = countDown;
+        numberDisplay.classList.add('countdown');
+        
+        const countDownTimer = setInterval(() => {
+            countDown--;
+            
+            if (countDown > 0) {
+                numberDisplay.textContent = countDown;
+            } else {
+                // カウントダウン終了
+                clearInterval(countDownTimer);
+                numberDisplay.classList.remove('countdown');
+                numberDisplay.textContent = '';
+                
+                // 少し間を空けてから表示開始
+                setTimeout(() => {
+                    startFlashNumbers(timePerNumber);
+                }, 500);
+            }
+        }, 1000);
+    }
+    
+    // 数字表示を実際に開始する関数
+    function startFlashNumbers(timePerNumber) {
         // 数字表示処理の関数
         const showNextNumber = () => {
             if (currentIndex < numbers.length) {
@@ -94,6 +123,10 @@ document.addEventListener('DOMContentLoaded', function() {
                 // 全ての数字を表示し終えたら終了
                 numberDisplay.textContent = '';
                 showResultArea();
+                
+                // 操作ボタンを再度有効化
+                startButton.disabled = false;
+                levelButtons.forEach(btn => btn.disabled = false);
             }
         };
         
@@ -155,7 +188,7 @@ document.addEventListener('DOMContentLoaded', function() {
     
     // アプリケーションをリセットする関数
     function resetApplication() {
-        // 念のため実行中のタイマーをクリア（setTimeoutは使わなくなったが念のため）
+        // 念のため実行中のタイマーをクリア
         if (intervalId) {
             clearInterval(intervalId);
             intervalId = null;
@@ -166,6 +199,13 @@ document.addEventListener('DOMContentLoaded', function() {
         for (let i = 0; i < highestTimeoutId; i++) {
             clearTimeout(i);
         }
+        
+        // カウントダウンクラスを削除
+        numberDisplay.classList.remove('countdown');
+        
+        // ボタンを有効化
+        startButton.disabled = false;
+        levelButtons.forEach(btn => btn.disabled = false);
         
         // 表示をリセット
         numberDisplay.textContent = '';

@@ -145,6 +145,19 @@ button:hover {
     justify-content: center;
 }
 
+#number-display.countdown {
+    font-size: 120px;
+    font-weight: bold;
+    color: #ff5722;
+    animation: pulse 1s infinite;
+}
+
+@keyframes pulse {
+    0% { transform: scale(1); }
+    50% { transform: scale(1.1); }
+    100% { transform: scale(1); }
+}
+
 #progress-bar {
     width: 100%;
     height: 10px;
