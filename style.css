@@ -1,0 +1,216 @@
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body {
+    font-family: 'Hiragino Kaku Gothic Pro', 'メイリオ', sans-serif;
+    background-color: #f5f5f5;
+    color: #333;
+    line-height: 1.6;
+}
+
+.level-buttons {
+    background-color: white;
+    padding: 15px;
+    border-radius: 5px;
+    box-shadow: 0 2px 5px rgba(0,0,0,0.1);
+    margin-bottom: 20px;
+}
+
+.button-row {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    margin-bottom: 10px;
+}
+
+.button-row:last-child {
+    margin-bottom: 0;
+}
+
+.level-btn {
+    margin: 5px;
+    min-width: 70px;
+    background-color: #2196F3;
+    font-size: 14px;
+    padding: 8px 12px;
+}
+
+.level-btn:hover {
+    background-color: #0b7dda;
+}
+
+.level-btn.active {
+    background-color: #0b7dda;
+    border: 2px solid #064579;
+    font-weight: bold;
+}
+
+.level-btn.master {
+    background-color: #ff9800;
+    min-width: 160px;
+}
+
+.level-btn.master:hover {
+    background-color: #e68a00;
+}
+
+.container {
+    max-width: 800px;
+    margin: 0 auto;
+    padding: 20px;
+}
+
+h1 {
+    text-align: center;
+    margin-bottom: 30px;
+    color: #444;
+}
+
+.settings {
+    background-color: white;
+    padding: 20px;
+    border-radius: 5px;
+    box-shadow: 0 2px 5px rgba(0,0,0,0.1);
+    margin-bottom: 20px;
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: space-between;
+    align-items: center;
+}
+
+.setting-group {
+    margin: 10px 0;
+}
+
+label {
+    display: inline-block;
+    margin-right: 10px;
+    font-weight: bold;
+}
+
+select, input[type="number"] {
+    padding: 8px;
+    border: 1px solid #ddd;
+    border-radius: 4px;
+    font-size: 16px;
+}
+
+button {
+    background-color: #4CAF50;
+    color: white;
+    border: none;
+    padding: 10px 20px;
+    text-align: center;
+    text-decoration: none;
+    display: inline-block;
+    font-size: 16px;
+    margin: 10px 0;
+    cursor: pointer;
+    border-radius: 4px;
+    transition: background-color 0.3s;
+}
+
+button:hover {
+    background-color: #45a049;
+}
+
+#start-button {
+    min-width: 120px;
+}
+
+.display-area {
+    background-color: white;
+    padding: 20px;
+    border-radius: 5px;
+    box-shadow: 0 2px 5px rgba(0,0,0,0.1);
+    margin-bottom: 20px;
+    height: 200px;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    position: relative;
+}
+
+#number-display {
+    font-size: 72px;
+    text-align: center;
+    height: 120px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+#progress-bar {
+    width: 100%;
+    height: 10px;
+    background-color: #f0f0f0;
+    border-radius: 5px;
+    margin-top: 20px;
+    overflow: hidden;
+}
+
+#progress {
+    height: 100%;
+    width: 0;
+    background-color: #4CAF50;
+    transition: width 0.1s linear;
+}
+
+.result-area {
+    background-color: white;
+    padding: 20px;
+    border-radius: 5px;
+    box-shadow: 0 2px 5px rgba(0,0,0,0.1);
+}
+
+.result-container h2 {
+    text-align: center;
+    margin-bottom: 20px;
+}
+
+.answer-section {
+    display: flex;
+    flex-wrap: wrap;
+    align-items: center;
+    justify-content: center;
+    margin-bottom: 20px;
+}
+
+#user-answer {
+    width: 150px;
+    margin: 0 10px;
+}
+
+#result-display {
+    text-align: center;
+    margin: 20px 0;
+    padding: 15px;
+    border-radius: 5px;
+}
+
+#result-message {
+    font-size: 18px;
+    font-weight: bold;
+    margin-top: 10px;
+}
+
+#retry-button {
+    display: block;
+    margin: 0 auto;
+    background-color: #2196F3;
+}
+
+#retry-button:hover {
+    background-color: #0b7dda;
+}
+
+.correct {
+    color: #4CAF50;
+}
+
+.incorrect {
+    color: #f44336;
+}
